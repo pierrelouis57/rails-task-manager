@@ -1,0 +1,13 @@
+<h1>My tasks</h1>
+<% @tasks.each do |task| %>
+  <h2> <%= task.completed ? "completed !" : "not completed !" %> - <%= link_to task.title, task_path(task)%></h2>
+  <%= link_to "edit a task", taskedit_path(task)%>
+    <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+<% end %>
+<br>
+<br>
+<%= link_to "add a new task", tasks_new_path%>
+
+
